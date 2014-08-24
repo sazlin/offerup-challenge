@@ -14,7 +14,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': os.environ['OFFERUP_CHALLENGE_DB_NAME'],
-        'USER': os.environ['OFFERUP_CHALLENGE_DB_USER'],
+        'USER': os.environ['OFFERUP_CHALLENGE_DB_USERNAME'],
         'PASSWORD': os.environ['OFFERUP_CHALLENGE_DB_PASSWORD'],
         'HOST': os.environ['OFFERUP_CHALLENGE_DB_ENDPOINT'],
         'PORT': os.environ['OFFERUP_CHALLENGE_DB_PORT'],                      # Set to empty string for default.
