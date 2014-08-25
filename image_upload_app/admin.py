@@ -9,6 +9,6 @@ class ImageAdmin(admin.ModelAdmin):
 
     fields = ('id', 'fileName', 'Duplicate', 'Hash')
     list_display = ('id', 'image_link', 'Duplicate', 'Hash')
-    readonly_fields = ('id', 'fileName', 'Duplicate', 'Hash')
+    readonly_fields = ('id', 'Duplicate', 'Hash')
 
 admin.site.register(Image, ImageAdmin)
