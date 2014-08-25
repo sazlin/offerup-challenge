@@ -3,15 +3,11 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from image_upload_app.tasks import checkForDuplicates
 
-#sourced w/ modifiation from http://djangotricks.blogspot.com/2013/12/how-to-store-your-media-files-in-amazon.html
 def upload_image_to(instance, filename):
-    import os
     from django.utils.timezone import now
-    filename_base, filename_ext = os.path.splitext(filename)
-    return 'images/%s%s' % (
+    return 'images/{}/{}'.format(
         now().strftime("%Y%m%d%H%M%S"),
-        filename_ext.lower(),
-    )
+        filename)
 
 
 class Image(models.Model):
