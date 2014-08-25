@@ -162,3 +162,14 @@ LOGGING = {
         },
     }
 }
+
+# CELERY SETTINGS
+BROKER_TRANSPORT = 'sqs'
+BROKER_TRANSPORT_OPTIONS = {
+    'region': 'us-west-2',
+}
+BROKER_USER = os.environ['AWS_ACCESS_KEY_ID']
+BROKER_PASSWORD = os.environ['AWS_SECRET_ACCESS_KEY']
+# BROKER_URL = 'sqs://%s:%s@%s' % (urllib.quote(AWS_ACCESS_KEY_ID, safe=''),
+#                                urllib.quote(AWS_SECRET_ACCESS_KEY, safe=''),
+#                                urllib.quote('sqs.us-west-2.amazonaws.com/093633342138/offerup_queue', safe=''))
