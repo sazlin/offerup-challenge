@@ -164,6 +164,7 @@ LOGGING = {
 }
 
 # CELERY SETTINGS
+TEST_RUNNER = 'djcelery.contrib.test_runner.CeleryTestSuiteRunner'
 BROKER_TRANSPORT = 'sqs'
 BROKER_TRANSPORT_OPTIONS = {
     'region': 'us-west-2',
