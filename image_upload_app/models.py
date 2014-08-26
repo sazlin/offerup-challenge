@@ -21,4 +21,3 @@ def image_post_save(sender, instance, created, *args, **kwargs):
     if created:
         print 'image created --> checking for dupes'
         checkForDuplicates.delay(instance.id)
-#dispatcher.connect(image_post_save, signal=signals.post_save, sender=Image)

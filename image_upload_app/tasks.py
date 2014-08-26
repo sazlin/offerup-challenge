@@ -1,17 +1,18 @@
 import urllib
 from celery import shared_task
 import pHash
+from django.core.exceptions import ObjectDoesNotExist
 
-
-# @shared_task(name='image_upload_app.tasks.checkForDuplicates')
 @shared_task
 def checkForDuplicates(image_id):
     from image_upload_app.models import Image
     # download the image for the given image_id
-    image = Image.objects.get(id=image_id)
-    if image is None:
-        # image doesn't exist
+    try:
+        image = Image.objects.get(id=image_id)
+    except ObjectDoesNotExist:
+        print "[WARNING] Image {} does not exist.".format(image_id)
         return
+
     urllib.urlretrieve(image.fileName.url, 'temp_file')
 
     # generate phash
