@@ -15,13 +15,10 @@ class TaskTests(TestCase):
         print self.images[0].id, self.images[0].fileName, self.images[0].Duplicate, self.images[0].Hash
         print self.images[1].id, self.images[1].fileName, self.images[1].Duplicate, self.images[1].Hash
         print self.images[2].id, self.images[2].fileName, self.images[2].Duplicate, self.images[2].Hash
-        # print Image.objects.all()[0].id, Image.objects.all()[0].fileName, Image.objects.all()[0].Duplicate, Image.objects.all()[0].Hash
 
     def tearDown(self):
         print "tearing down..."
-        self.images[0].delete()
-        self.images[0].delete()
-        self.images[0].delete()
+        self.images.delete()
 
     def test_checkForDuplicates_no_dupe(self):
         self.assertIs(self.images[0].Duplicate, False)
