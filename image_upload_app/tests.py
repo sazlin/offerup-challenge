@@ -21,10 +21,16 @@ class TaskTests(TestCase):
         self.images.delete()
 
     def test_checkForDuplicates_no_dupe(self):
+        """
+        Test that checkForDuplicates doesn't mark non-dupes as dupes.
+        """
         self.assertIs(self.images[0].Duplicate, False)
         self.assertIs(self.images[1].Duplicate, False)
 
     def test_checkForDuplicates_dupe(self):
+        """
+        Test that checkForDuplicates marks an obvious dupe successfully.
+        """
         self.assertTrue(self.images[2].Duplicate)
 
     def test_checkForDuplicates_doesnt_exist(self):
